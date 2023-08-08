@@ -1,0 +1,31 @@
+.container{
+    display: grid;
+    grid-template-rows: 350px 550px 1000px 350px 100px
+}
+
+.top-header{
+    display: grid;
+    grid-template-rows: 50px 1fr 1fr;
+}
+
+header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+svg{
+    height: 40px;
+    width: 40px;
+}
