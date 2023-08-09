@@ -24,8 +24,3 @@ header{
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 }
-
-svg{
-    height: 40px;
-    width: 40px;
-}
