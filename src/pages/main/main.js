@@ -43,6 +43,28 @@ const Main = () => {
                         <button>Valuta</button>
                         <button>Aste</button>
                         <button>Agenzie</button>
+
+                        <div className='searchBar'>
+                            Insert the dropdown here
+                            <input type='text' name='search' placeholder='Inserisci comune, zona o metro' />
+                            <button>CERCA</button>
+                        </div>
+
+                        {/* <Container>
+            <form onSubmit={handleSubmit}>
+                <SiteLogo />
+                <label id = 'username'>
+                    <strong>
+                        Username
+                    </strong>
+                </label>
+                <input type='text' name ='username' onChange={onChangeUsername} value={inputUsername} required/>
+
+                <label id ='password'>
+                    <strong>
+                        Password
+                    </strong>
+                </label> */}
                         
                     </form>
 
