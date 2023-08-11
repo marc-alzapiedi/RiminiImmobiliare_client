@@ -2,6 +2,10 @@ import './style.css'
 
 const Main = () => {
 
+    const handleDropdown = (event) => {
+        
+    }
+
     return (
         <>
             <div className="container">
@@ -45,7 +49,17 @@ const Main = () => {
                         <button>Agenzie</button>
 
                         <div className='searchBar'>
-                            Insert the dropdown here
+                            <div className='dropdown'>
+                                <button onClick={handleDropdown()} className='dropbtn'>
+                                    {/* Text according to the buttons */}
+                                    <i className='arrow down'></i>
+                                </button>
+                                <div id='myDropdown' className='dropdown-content'>
+                                    <button>
+                                        <input type='radio' id=''></input>
+                                    </button>
+                                </div>
+                            </div>
                             <input type='text' name='search' placeholder='Inserisci comune, zona o metro' />
                             <button>CERCA</button>
                         </div>
