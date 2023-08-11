@@ -50,21 +50,7 @@ const Main = () => {
                             <button>CERCA</button>
                         </div>
 
-                        {/* <Container>
-            <form onSubmit={handleSubmit}>
-                <SiteLogo />
-                <label id = 'username'>
-                    <strong>
-                        Username
-                    </strong>
-                </label>
-                <input type='text' name ='username' onChange={onChangeUsername} value={inputUsername} required/>
-
-                <label id ='password'>
-                    <strong>
-                        Password
-                    </strong>
-                </label> */}
+                        
                         
                     </form>
 
