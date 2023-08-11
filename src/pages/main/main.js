@@ -3,7 +3,7 @@ import './style.css'
 const Main = () => {
 
     const handleDropdown = (event) => {
-        
+
     }
 
     return (
@@ -54,11 +54,26 @@ const Main = () => {
                                     {/* Text according to the buttons */}
                                     <i className='arrow down'></i>
                                 </button>
-                                <div id='myDropdown' className='dropdown-content'>
+                                <form id='myDropdown' className='dropdown-content'>
                                     <button>
-                                        <input type='radio' id=''></input>
+                                        Case - Appartamenti
+                                        <input type='radio' id='case' name='first_dropdwn' value={"Case - Appartamenti"}></input>
+                                        <i className='arrow down'></i>
                                     </button>
-                                </div>
+                                    <br/>
+                                    <button>
+                                        Nuove costruzioni
+                                        <input type='radio' id='costruzioni' name='second_dropdwn' value={"Nuove - costruzioni"}></input>
+                                        <i className='arrow down'></i>
+                                    </button>
+                                    <br/>
+                                    <label htmlFor='garage'>Garage - Posti auto</label>
+                                    <input type='radio' id='garage' name='third-dropdwn' value={"Garage - Posti auto"}></input>
+                                    <br/>
+                                    <label htmlFor='palazzi'>Palazzi - Edifici</label>
+                                    <input type='radio' id='palazzi' name='fourth-dropdwn' value={"Palazzi - Edifici"}></input>
+
+                                </form>
                             </div>
                             <input type='text' name='search' placeholder='Inserisci comune, zona o metro' />
                             <button>CERCA</button>
