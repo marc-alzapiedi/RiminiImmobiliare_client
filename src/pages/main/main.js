@@ -40,7 +40,7 @@ const Main = () => {
                         </h1>
                     </main>
 
-                    <form>
+                    {/* <form>
                         <button>Compra</button>
                         <button>Affitta</button>
                         <button>Vendi</button>
@@ -51,7 +51,7 @@ const Main = () => {
                         <div className='searchBar'>
                             <div className='dropdown'>
                                 <button onClick={handleDropdown()} className='dropbtn'>
-                                    {/* Text according to the buttons */}
+                                    Text according to the buttons
                                     <i className='arrow down'></i>
                                 </button>
                                 <form id='myDropdown' className='dropdown-content'>
@@ -72,7 +72,21 @@ const Main = () => {
                                     <br/>
                                     <label htmlFor='palazzi'>Palazzi - Edifici</label>
                                     <input type='radio' id='palazzi' name='fourth-dropdwn' value={"Palazzi - Edifici"}></input>
-
+                                    <br />
+                                    <label htmlFor='uffici'>Uffici - Coworking</label>
+                                    <input type='radio' id='uffici' name='fifth-dropdwn' value={"Uffici - Coworking"}></input>
+                                    <br />
+                                    <label htmlFor='negozi'>Negozi - Locali commerciali</label>
+                                    <input type='radio' id='negozi' name='sixth-dropdwn' value={"Negozi - Locali commerciali"}></input>
+                                    <br />
+                                    <label htmlFor='magazzini'>Magazzini - Depositi</label>
+                                    <input type='radio' id='magazzini' name='seventh-dropdwn' value={"Magazzini - Depositi"}></input>
+                                    <br />
+                                    <label htmlFor='Capannoni'>Capannoni</label>
+                                    <input type='radio' id='capannoni' name='eigth-dropdwn' value={"Caponnoni"}></input>
+                                    <br />
+                                    <label htmlFor='terreni'>Terreni</label>
+                                    <input type='radio' id='terreni' name='sixth-dropdwn' value={"Terreni"}></input>
                                 </form>
                             </div>
                             <input type='text' name='search' placeholder='Inserisci comune, zona o metro' />
@@ -81,7 +95,7 @@ const Main = () => {
 
                         
                         
-                    </form>
+                    </form> */}
 
                 </section>
 
