@@ -1,6 +1,7 @@
 import './style.css'
 import ProfileIcon from '../../Icons/ProfileIcon'
 import Logo from '../../Icons/Logo'
+import Container from '../../components/container'
 
 const Main = () => {
 
@@ -10,7 +11,7 @@ const Main = () => {
 
     return (
         <>
-            <div className="container">
+            <Container>
                 <section className="top-header">
                     <header>
                         <nav className='headerLinks'>
@@ -118,7 +119,7 @@ const Main = () => {
                     Ea sit mollit exercitation id ut dolor occaecat commodo aute nulla. Ea aliqua adipisicing deserunt culpa esse commodo enim dolor excepteur ea. Aliquip aliquip do elit duis veniam sit cupidatat cupidatat. Tempor anim ea eu laboris enim minim veniam sunt occaecat ut et sunt aute. Veniam adipisicing non do nisi laborum. Ullamco labore tempor incididunt aliquip ad. Nulla voluptate consectetur consectetur laborum non non tempor.
                 </footer>
 
-            </div>
+            </Container>
         </>
     )
 }
