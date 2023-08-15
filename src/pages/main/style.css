@@ -1,3 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
 .container{
     display: grid;
     grid-template-rows: 350px 550px 1000px 350px 100px
@@ -6,6 +13,7 @@
 .top-header{
     display: grid;
     grid-template-rows: 50px 1fr 1fr;
+    background-color: #004fa4c8;
 }
 
 header{
@@ -24,3 +32,41 @@ header{
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 }
+
+.headerLinks{
+    margin-left: 50px;
+    margin-top: 20px
+}
+
+.nav{
+    text-decoration: none;
+    margin: 10px;
+    padding-bottom: 6px;
+    color: white;
+    font-size: 16px;
+    transition: 0.07s;
+}
+
+.nav:hover, .logIns:nth-child(2):hover{
+    border-bottom: 3px solid white;
+}
+
+.loginLinks{
+    text-align: end;
+}
+
+.logIns:first-child{
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    border: solid 2px white;
+    border-radius: 10px;
+}
+
+.logIns:nth-child(2){
+    color: white;
+    text-decoration: none;
+    transition: 0.07s;
+    margin: 20px;
+}
+

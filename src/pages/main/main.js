@@ -4,30 +4,33 @@ import Logo from '../../Icons/Logo'
 
 const Main = () => {
 
-    const handleDropdown = (event) => {
+    // const handleDropdown = (event) => {
 
-    }
+    // }
 
     return (
         <>
             <div className="container">
                 <section className="top-header">
                     <header>
-                        <nav>
-                            <a href=''>Agenzie</a>
-                            <a href=''>Prezzi immobili</a>
-                            <a href=''>Vendi casa</a>
-                            <a href=''>Valuta casa</a>
-                            <a href=''>Mutui</a>
+                        <nav className='headerLinks'>
+                            <a href='https://www.w3schools.com/css/css_pseudo_classes.asp' className='nav'>Agenzie</a>
+                            <a href='https://www.w3schools.com/css/css_pseudo_classes.asp' className='nav'>Prezzi immobili</a>
+                            <a href='https://www.w3schools.com/css/css_pseudo_classes.asp' className='nav'>Vendi casa</a>
+                            <a href='https://www.w3schools.com/css/css_pseudo_classes.asp' className='nav'>Valuta casa</a>
+                            <a href='https://www.w3schools.com/css/css_pseudo_classes.asp' className='nav'>Mutui</a>
                         </nav>
 
-                        <div>
-                            <button>
+                        <div className='loginLinks'>
+                            <a href='https://www.w3schools.com/css/css_pseudo_classes.asp' className='logIns'>
                                 PUBBLICA ANNUNCI 
+                            </a>
+                            <a href='https://www.w3schools.com/css/css_pseudo_classes.asp' className='logIns'> Accedi</a>
+                            <button>
+                                <ProfileIcon />
+                                <i className='arrow down'></i>
+
                             </button>
-                            <a href=''> Accedi</a>
-                            <ProfileIcon />
-                            <i className='arrow down'></i>
                         </div>
                     </header>
 
