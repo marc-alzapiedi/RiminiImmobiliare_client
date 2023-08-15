@@ -26,7 +26,7 @@ const Main = () => {
                                 PUBBLICA ANNUNCI 
                             </a>
                             <a href='https://www.w3schools.com/css/css_pseudo_classes.asp' className='logIns'> Accedi</a>
-                            <button>
+                            <button className='logIns'>
                                 <ProfileIcon />
                                 <i className='arrow down'></i>
 
