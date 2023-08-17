@@ -85,3 +85,9 @@ header{
     cursor: pointer;
 }
 
+.loginMenu{
+    position: absolute;
+    width: 300px;
+    background-color: red;
+}
+

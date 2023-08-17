@@ -2,12 +2,25 @@ import './style.css'
 import ProfileIcon from '../../Icons/ProfileIcon'
 import Logo from '../../Icons/Logo'
 import Container from '../../components/container'
+import Messagge from '../../Icons/Message'
+import Heart from '../../Icons/Heart'
+import Bell from '../../Icons/Bell'
+import Garbage from '../../Icons/Garbage'
+import Clock from '../../Icons/Clock'
+import SellHouse from '../../Icons/SellHouse'
+import Scale from '../../Icons/Scale'
+import Plus from '../../Icons/Plus'
+import { Link } from 'react-router-dom'
+// import { useState } from 'react'
+import ArrowRight from '../../Icons/ArrowRight'
 
 const Main = () => {
 
-    // const handleDropdown = (event) => {
+    // const [loginMenu, setLoginMenu] = useState(false)
 
-    // }
+    const handleDropdown = (event) => {
+
+    }
 
     return (
         <>
@@ -22,17 +35,103 @@ const Main = () => {
                             <a href='https://www.w3schools.com/css/css_pseudo_classes.asp' className='nav'>Mutui</a>
                         </nav>
 
-                        <div className='loginLinks'>
+                        <nav className='loginLinks'>
                             <a href='https://www.w3schools.com/css/css_pseudo_classes.asp' className='logIns'>
                                 PUBBLICA ANNUNCI 
                             </a>
                             <a href='https://www.w3schools.com/css/css_pseudo_classes.asp' className='logIns'> Accedi</a>
-                            <button className='logIns'>
+                            <button className='logIns' onClick={handleDropdown}>
                                 <ProfileIcon />
                                 <i className='arrow down'></i>
-
                             </button>
+                        </nav>
+
+                        <div className='loginMenu'>
+                            <ul>
+                                <li>
+                                    <ProfileIcon />
+                                    <Link >
+                                        Accedi / Registrati
+                                    </Link>
+                                </li>
+                            </ul>
+
+                            <ul>
+                                <li>
+                                    <Messagge />
+                                    <Link>
+                                        Messaggi
+                                        <ArrowRight />
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Heart />
+                                    <Link>
+                                        Annunci salvati
+                                        <ArrowRight />
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Bell />
+                                    <Link>
+                                        Ricerche salvate
+                                        <ArrowRight />
+                                    </Link>
+                                    
+                                </li>
+
+                                <li>
+                                    <Garbage />
+                                    <Link>
+                                        Annunci nascosti
+                                        <ArrowRight />
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Clock />
+                                    <Link>
+                                        Recenti
+                                        <ArrowRight />
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <hr/>
+                                </li>
+
+                                <li>
+                                    <SellHouse />
+                                    <Link>
+                                        Vendi casa
+                                        <ArrowRight />
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Scale />
+                                    <Link>
+                                        Valuta casa
+                                        <p className='badgeAlert'>Novità</p>
+                                        <ArrowRight />
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Plus />
+                                    <Link>
+                                        Pubblica annuncio
+                                        <ArrowRight />
+                                    </Link>
+
+                                </li>
+
+                            </ul>
                         </div>
+
+
                     </header>
 
                     <main>
