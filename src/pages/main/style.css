@@ -88,6 +88,16 @@ header{
 .loginMenu{
     position: absolute;
     width: 300px;
-    background-color: red;
+    background-color: white;
 }
 
+.loginLinks > button > .ProfileIcon{
+    color: transparent;
+}
+
+.loginMenu > ul > li > .ProfileIcon {
+    color: grey;
+    background-color: grey;
+    border: solid 1px transparent;
+    border-radius: 100px;
+}
