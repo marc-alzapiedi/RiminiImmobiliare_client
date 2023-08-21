@@ -11,15 +11,17 @@ import SellHouse from '../../Icons/SellHouse'
 import Scale from '../../Icons/Scale'
 import Plus from '../../Icons/Plus'
 import { Link } from 'react-router-dom'
-// import { useState } from 'react'
+import { useState } from 'react'
 import ArrowRight from '../../Icons/ArrowRight'
 
 const Main = () => {
 
-    // const [loginMenu, setLoginMenu] = useState(false)
+    const [loginMenu, setLoginMenu] = useState(false)
+    const [rotateArrow, setRotateArrow] = useState(false)
 
-    const handleDropdown = (event) => {
-
+    const handleDropdown = () => {
+        setLoginMenu(!loginMenu)
+        setRotateArrow(!rotateArrow)
     }
 
     return (
@@ -42,58 +44,79 @@ const Main = () => {
                             <a href='https://www.w3schools.com/css/css_pseudo_classes.asp' className='logIns'> Accedi</a>
                             <button className='logIns' onClick={handleDropdown}>
                                 <ProfileIcon />
-                                <i className='arrow down'></i>
+                                <i className = {rotateArrow ?`arrow down up` : `arrow down`}></i>
                             </button>
                         </nav>
 
-                        <div className='loginMenu'>
+                        <div>
+                            
+                        </div>
+
+                        {loginMenu && <div className='loginMenu'>
                             <ul>
                                 <li>
-                                    <ProfileIcon />
                                     <Link >
+                                    <ProfileIcon />
+                                    <p>
                                         Accedi / Registrati
+                                    </p>
                                     </Link>
                                 </li>
                             </ul>
 
                             <ul>
                                 <li>
-                                    <Messagge />
                                     <Link>
-                                        Messaggi
+                                        <Messagge />
+                                        <p>
+
+                                            Messaggi
+                                        </p>
                                         <ArrowRight />
                                     </Link>
                                 </li>
 
                                 <li>
-                                    <Heart />
                                     <Link>
-                                        Annunci salvati
+                                        <Heart />
+                                        <p>
+
+                                            Annunci salvati
+                                        </p>
                                         <ArrowRight />
                                     </Link>
                                 </li>
 
                                 <li>
-                                    <Bell />
                                     <Link>
-                                        Ricerche salvate
+                                        <Bell />
+                                        <p>
+                                            Ricerche salvate
+
+                                        </p>
                                         <ArrowRight />
                                     </Link>
                                     
                                 </li>
 
                                 <li>
-                                    <Garbage />
                                     <Link>
-                                        Annunci nascosti
+                                        <Garbage />
+                                        <p>
+
+                                            Annunci nascosti
+                                        </p>
                                         <ArrowRight />
                                     </Link>
                                 </li>
 
                                 <li>
-                                    <Clock />
                                     <Link>
-                                        Recenti
+                                        <Clock />
+                                        <p>
+
+                                            Recenti
+                                        </p>
                                         <ArrowRight />
                                     </Link>
                                 </li>
@@ -103,33 +126,46 @@ const Main = () => {
                                 </li>
 
                                 <li>
-                                    <SellHouse />
                                     <Link>
-                                        Vendi casa
+                                        <SellHouse />
+                                        <p>
+
+                                            Vendi casa
+                                        </p>
                                         <ArrowRight />
                                     </Link>
                                 </li>
 
                                 <li>
-                                    <Scale />
                                     <Link>
-                                        Valuta casa
-                                        <p className='badgeAlert'>Novità</p>
+                                        <Scale />
+
+                                        <div className='badgeAlert'>
+                                            Valuta casa
+                                            <p>Novità</p>
+                                        </div>
+                                        
+                
                                         <ArrowRight />
                                     </Link>
                                 </li>
 
                                 <li>
-                                    <Plus />
                                     <Link>
-                                        Pubblica annuncio
+                                        <Plus />
+                                        <p>
+
+                                            Pubblica annuncio
+                                        </p>
                                         <ArrowRight />
                                     </Link>
 
                                 </li>
 
                             </ul>
-                        </div>
+                        </div>}
+
+                        
 
 
                     </header>
