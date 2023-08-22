@@ -1,7 +1,6 @@
-const Menu = ({children, className, siblings}) => {
+const Menu = ({children, className}) => {
     return (
         <div className={className}>
-            {siblings}
 
             <ul>
                 {children}

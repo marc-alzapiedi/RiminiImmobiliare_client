@@ -5,14 +5,14 @@ const MenuItem = ({icon, text, children}) => {
     return (
         <li>
             {
-            icon && 
+            icon ? 
             <Link>
                 {icon}
                 {children ? children : <p>{text}</p>}
-                <ArrowRight />
-            </Link>
+                {text !== 'Accedi / Registrati' && <ArrowRight />}
+            </Link> : children
             }
-            {children}
+            
 
             
         </li>

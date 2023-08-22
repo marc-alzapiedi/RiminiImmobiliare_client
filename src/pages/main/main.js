@@ -12,7 +12,6 @@ import Scale from '../../Icons/Scale'
 import Plus from '../../Icons/Plus'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import ArrowRight from '../../Icons/ArrowRight'
 import Menu from '../../components/Menu'
 import MenuItem from '../../components/Menu/MenuItem'
 
@@ -25,6 +24,7 @@ const Main = () => {
         setLoginMenu(!loginMenu)
         setRotateArrow(!rotateArrow)
     }
+
 
     return (
         <>
@@ -54,118 +54,28 @@ const Main = () => {
                             
                         </div>
 
-                        {loginMenu && <div className='loginMenu'>
-                            <ul>
-                                <li>
-                                    <Link >
-                                    <ProfileIcon />
-                                    <p>
-                                        Accedi / Registrati
-                                    </p>
-                                    </Link>
-                                </li>
-                            </ul>
+                        {loginMenu && 
 
-                            <ul>
-                                <li>
-                                    <Link>
-                                        <Messagge />
-                                        <p>
+                        <Menu className={'loginMenu'}>
+                            <MenuItem icon={<ProfileIcon/>} text={'Accedi / Registrati'}/>
+                            <MenuItem icon={<Messagge />} text={'Messaggi'}/>
+                            <MenuItem icon={<Heart />} text={'Annunci salvati'}/>
+                            <MenuItem icon={<Bell />} text={'Ricerche salvate'}/>
+                            <MenuItem icon={<Garbage />} text={'Annunci Nascosti'}/>
+                            <MenuItem icon={<Clock />} text={'Recenti'}/>
+                            <MenuItem children={<hr/>} />
+                            <MenuItem icon={<SellHouse />} text={'Vendi casa'}/>
+                            <MenuItem icon={<Scale />} children={
+                                <div className='badgeAlert'>
+                                    Valuta casa
+                                    <p>Novità</p>
+                                </div>
+                            }/>
+                            <MenuItem icon={<Plus />} text={'Pubblica annuncio'}/>
 
-                                            Messaggi
-                                        </p>
-                                        <ArrowRight />
-                                    </Link>
-                                </li>
-
-                                <li>
-                                    <Link>
-                                        <Heart />
-                                        <p>
-
-                                            Annunci salvati
-                                        </p>
-                                        <ArrowRight />
-                                    </Link>
-                                </li>
-
-                                <li>
-                                    <Link>
-                                        <Bell />
-                                        <p>
-                                            Ricerche salvate
-
-                                        </p>
-                                        <ArrowRight />
-                                    </Link>
-                                    
-                                </li>
-
-                                <li>
-                                    <Link>
-                                        <Garbage />
-                                        <p>
-
-                                            Annunci nascosti
-                                        </p>
-                                        <ArrowRight />
-                                    </Link>
-                                </li>
-
-                                <li>
-                                    <Link>
-                                        <Clock />
-                                        <p>
-
-                                            Recenti
-                                        </p>
-                                        <ArrowRight />
-                                    </Link>
-                                </li>
-
-                                <li>
-                                    <hr/>
-                                </li>
-
-                                <li>
-                                    <Link>
-                                        <SellHouse />
-                                        <p>
-
-                                            Vendi casa
-                                        </p>
-                                        <ArrowRight />
-                                    </Link>
-                                </li>
-
-                                <li>
-                                    <Link>
-                                        <Scale />
-
-                                        <div className='badgeAlert'>
-                                            Valuta casa
-                                            <p>Novità</p>
-                                        </div>
-                                        
-                
-                                        <ArrowRight />
-                                    </Link>
-                                </li>
-
-                                <li>
-                                    <Link>
-                                        <Plus />
-                                        <p>
-
-                                            Pubblica annuncio
-                                        </p>
-                                        <ArrowRight />
-                                    </Link>
-
-                                </li>
-
-                            </ul>
-                        </div>}
+                        </Menu>
+                        
+                        }
 
                         
 
