@@ -13,6 +13,8 @@ import Plus from '../../Icons/Plus'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import ArrowRight from '../../Icons/ArrowRight'
+import Menu from '../../components/Menu'
+import MenuItem from '../../components/Menu/MenuItem'
 
 const Main = () => {
 
@@ -171,27 +173,32 @@ const Main = () => {
                     </header>
 
                     <main>
-                        <h1>                            
+                        <Link>                            
                             <Logo />
                             Rimini Immobiliare
-                        </h1>
+                        </Link>
+                        <Link>
+                            Il N.1 per vendere e comprare
+                        </Link>
                     </main>
 
-                    {/* <form>
-                        <button>Compra</button>
-                        <button>Affitta</button>
-                        <button>Vendi</button>
-                        <button>Valuta</button>
-                        <button>Aste</button>
-                        <button>Agenzie</button>
+                    <form>
+                        <nav>
+                            <button>Compra</button>
+                            <button>Affitta</button>
+                            <button>Vendi</button>
+                            <button>Valuta</button>
+                            <button>Aste</button>
+                            <button>Agenzie</button>
+                        </nav>
 
                         <div className='searchBar'>
                             <div className='dropdown'>
-                                <button onClick={handleDropdown()} className='dropbtn'>
+                                <button  className='dropbtn'>
                                     Text according to the buttons
                                     <i className='arrow down'></i>
                                 </button>
-                                <form id='myDropdown' className='dropdown-content'>
+                                {/* <form id='myDropdown' className='dropdown-content'>
                                     <button>
                                         Case - Appartamenti
                                         <input type='radio' id='case' name='first_dropdwn' value={"Case - Appartamenti"}></input>
@@ -224,7 +231,7 @@ const Main = () => {
                                     <br />
                                     <label htmlFor='terreni'>Terreni</label>
                                     <input type='radio' id='terreni' name='sixth-dropdwn' value={"Terreni"}></input>
-                                </form>
+                                </form> */}
                             </div>
                             <input type='text' name='search' placeholder='Inserisci comune, zona o metro' />
                             <button>CERCA</button>
@@ -232,7 +239,7 @@ const Main = () => {
 
                         
                         
-                    </form> */}
+                    </form>
 
                 </section>
 

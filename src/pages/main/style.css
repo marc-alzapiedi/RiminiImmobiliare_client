@@ -7,7 +7,7 @@
 
 .container{
     display: grid;
-    grid-template-rows: 350px 550px 1000px 350px 100px
+    grid-template-rows: 480px 550px 1000px 350px 100px
 }
 
 .top-header{
@@ -170,4 +170,36 @@ header{
 
 .loginMenu > ul > li > a:hover{
     text-decoration: underline;
+}
+
+main {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+main > a:first-child{
+    display: grid;
+    grid-template-columns: 120px 328.95px;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    position: relative;
+    right: 4vw;
+
+}
+
+main > a:last-child{
+    text-decoration: none;
+    color: white;
+    position: relative;
+    left: 99px;
+    bottom: 35px;
+    width: 250px;
+}
+
+
+form > nav{
+    text-align: center;
 }
