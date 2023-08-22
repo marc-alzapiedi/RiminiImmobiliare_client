@@ -1,7 +1,7 @@
 import './style.css'
 import ProfileIcon from '../../Icons/ProfileIcon'
-import Logo from '../../Icons/Logo'
-import Container from '../../components/container'
+import Turtle from '../../Icons/Turtle'
+import Container from '../../components/Container'
 import Messagge from '../../Icons/Message'
 import Heart from '../../Icons/Heart'
 import Bell from '../../Icons/Bell'
@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Menu from '../../components/Menu'
 import MenuItem from '../../components/Menu/MenuItem'
+import Logo from '../../components/Logo'
 
 const Main = () => {
 
@@ -82,15 +83,8 @@ const Main = () => {
 
                     </header>
 
-                    <main>
-                        <Link>                            
-                            <Logo />
-                            Rimini Immobiliare
-                        </Link>
-                        <Link>
-                            Il N.1 per vendere e comprare
-                        </Link>
-                    </main>
+
+                    <Logo />
 
                     <form>
                         <nav>

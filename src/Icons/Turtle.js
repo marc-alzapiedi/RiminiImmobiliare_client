@@ -1,4 +1,4 @@
-const Logo = () => {
+const Turtle = () => {
 
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="120px" height="120px" viewBox="0 0 400 400" fill="none">
@@ -15,4 +15,4 @@ const Logo = () => {
     )
 }
 
-export default Logo
+export default Turtle
