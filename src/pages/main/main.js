@@ -1,6 +1,5 @@
 import './style.css'
 import ProfileIcon from '../../Icons/ProfileIcon'
-import Turtle from '../../Icons/Turtle'
 import Container from '../../components/Container'
 import Messagge from '../../Icons/Message'
 import Heart from '../../Icons/Heart'
@@ -10,20 +9,43 @@ import Clock from '../../Icons/Clock'
 import SellHouse from '../../Icons/SellHouse'
 import Scale from '../../Icons/Scale'
 import Plus from '../../Icons/Plus'
-import { Link } from 'react-router-dom'
+import GridSpacer from '../../components/GridSpacer'
 import { useState } from 'react'
 import Menu from '../../components/Menu'
 import MenuItem from '../../components/Menu/MenuItem'
 import Logo from '../../components/Logo'
+import ArrowDown from '../../Icons/ArrowDown'
+import Search from '../../Icons/Search'
+import { Link } from 'react-router-dom'
 
 const Main = () => {
 
     const [loginMenu, setLoginMenu] = useState(false)
-    const [rotateArrow, setRotateArrow] = useState(false)
+    const [rotateLoginArrow, setLoginArrow] = useState(false)
+    const [rotateSearchArrow, setSearchArrow] = useState (false)
 
-    const handleDropdown = () => {
-        setLoginMenu(!loginMenu)
-        setRotateArrow(!rotateArrow)
+    const between = (x, min, max) => {
+        return x >= min && x <= max
+    }
+
+    const handleDropdown = (event) => {
+        // console.log(event.clientX, event.clientY)
+
+        if (event.clientX > 1100 && event.clientY < 60){
+            setLoginArrow(!rotateLoginArrow)
+            setLoginMenu(!loginMenu)
+
+        }
+
+        // if (event.clientX < 200 && between(event.clientY, 250, 350)){
+        //     setSearchArrow(!rotateSearchArrow)
+
+        // }
+
+    }
+
+    const handleSearchMenu = () => {
+
     }
 
 
@@ -47,13 +69,14 @@ const Main = () => {
                             <a href='https://www.w3schools.com/css/css_pseudo_classes.asp' className='logIns'> Accedi</a>
                             <button className='logIns' onClick={handleDropdown}>
                                 <ProfileIcon />
-                                <i className = {rotateArrow ?`arrow down up` : `arrow down`}></i>
+                                {/* <i className = {rotateLoginArrow ?`arrow down up` : `arrow down`}></i> */}
+
+                                <ArrowDown rotateArrow = {rotateLoginArrow} condition_1 = {'arrow down up'} condition_2 = {'arrow down'}/>
+                              
                             </button>
                         </nav>
 
-                        <div>
-                            
-                        </div>
+                        <GridSpacer />
 
                         {loginMenu && 
 
@@ -83,67 +106,57 @@ const Main = () => {
 
                     </header>
 
-
                     <Logo />
 
-                    <form>
-                        <nav>
+                    <nav>
+                        <div className='searchBar-Menu'>
                             <button>Compra</button>
                             <button>Affitta</button>
                             <button>Vendi</button>
                             <button>Valuta</button>
                             <button>Aste</button>
                             <button>Agenzie</button>
-                        </nav>
+                        </div>
+
 
                         <div className='searchBar'>
-                            <div className='dropdown'>
-                                <button  className='dropbtn'>
-                                    Text according to the buttons
-                                    <i className='arrow down'></i>
-                                </button>
-                                {/* <form id='myDropdown' className='dropdown-content'>
-                                    <button>
-                                        Case - Appartamenti
-                                        <input type='radio' id='case' name='first_dropdwn' value={"Case - Appartamenti"}></input>
-                                        <i className='arrow down'></i>
-                                    </button>
-                                    <br/>
-                                    <button>
-                                        Nuove costruzioni
-                                        <input type='radio' id='costruzioni' name='second_dropdwn' value={"Nuove - costruzioni"}></input>
-                                        <i className='arrow down'></i>
-                                    </button>
-                                    <br/>
-                                    <label htmlFor='garage'>Garage - Posti auto</label>
-                                    <input type='radio' id='garage' name='third-dropdwn' value={"Garage - Posti auto"}></input>
-                                    <br/>
-                                    <label htmlFor='palazzi'>Palazzi - Edifici</label>
-                                    <input type='radio' id='palazzi' name='fourth-dropdwn' value={"Palazzi - Edifici"}></input>
-                                    <br />
-                                    <label htmlFor='uffici'>Uffici - Coworking</label>
-                                    <input type='radio' id='uffici' name='fifth-dropdwn' value={"Uffici - Coworking"}></input>
-                                    <br />
-                                    <label htmlFor='negozi'>Negozi - Locali commerciali</label>
-                                    <input type='radio' id='negozi' name='sixth-dropdwn' value={"Negozi - Locali commerciali"}></input>
-                                    <br />
-                                    <label htmlFor='magazzini'>Magazzini - Depositi</label>
-                                    <input type='radio' id='magazzini' name='seventh-dropdwn' value={"Magazzini - Depositi"}></input>
-                                    <br />
-                                    <label htmlFor='Capannoni'>Capannoni</label>
-                                    <input type='radio' id='capannoni' name='eigth-dropdwn' value={"Caponnoni"}></input>
-                                    <br />
-                                    <label htmlFor='terreni'>Terreni</label>
-                                    <input type='radio' id='terreni' name='sixth-dropdwn' value={"Terreni"}></input>
-                                </form> */}
-                            </div>
-                            <input type='text' name='search' placeholder='Inserisci comune, zona o metro' />
-                            <button>CERCA</button>
+
+                            <Search />
+                            <button onClick={handleDropdown}>
+                                Text dependent on selection
+                                <ArrowDown rotateArrow = {rotateSearchArrow} condition_1 = {'arrow up down'} condition_2 = {'arrow down'}/>
+                            </button>
+                            <input type='text' placeholder='Text dependent on button selection'/>
+
+                            <button>
+                                Cerca
+                            </button>
+
+
+                            
+
+                        </div>
+
+                        <div className='searchBar-Label'>
+                            
+                            <p>
+                                N.1
+                            </p>
+
+                            <p>
+
+                                RiminiImmobiliare.it è il N.1 nella provincia di Rimini. 
+                            </p>
+
+                            <Link>
+                                Scopri perché
+                            </Link>
+
                         </div>
 
                         
                         
-                    </form>
+                    </nav>
 
                 </section>
 

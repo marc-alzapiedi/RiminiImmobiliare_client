@@ -12,7 +12,7 @@
 
 .top-header{
     display: grid;
-    grid-template-rows: 50px 1fr 1fr;
+    grid-template-rows: 50px 170px 1fr;
     background-color: #004fa4c8;
 }
 
@@ -30,6 +30,14 @@ header{
     position: relative;
     bottom: 10px;
     left: 8px;
+}
+
+.searchBar > button > .arrow{
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    position: static;
+    margin: 2px;
+    margin-left: 15px;
 }
 
 .down {
@@ -172,13 +180,13 @@ header{
     text-decoration: underline;
 }
 
-main {
+.Logo {
     display: grid;
     align-content: center;
-    justify-content: center;
+    justify-self: center;
 }
 
-main > a:first-child{
+.Logo > a:first-child{
     display: grid;
     grid-template-columns: 120px 328.95px;
     align-items: center;
@@ -186,20 +194,120 @@ main > a:first-child{
     color: white;
     font-size: 40px;
     position: relative;
-    right: 4vw;
-
+    justify-self: center;
 }
 
-main > a:last-child{
+.Logo > a:last-child{
     text-decoration: none;
     color: white;
     position: relative;
-    left: 99px;
+    left: 180px;
     bottom: 35px;
     width: 250px;
 }
 
+.top-header > nav{
+    display: grid;
+    grid-template-rows: min-content min-content;
+}
 
-form > nav{
+.searchBar-Menu, .searchBar{
     text-align: center;
 }
+
+.searchBar-Menu{
+    margin-right: 33.8vw;
+}
+
+.searchBar-Menu > button{
+    background-color: transparent;
+    border: solid 2px transparent;
+    padding: 1vw;
+    font-size: 20px;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.searchBar-Menu > button:hover{
+    cursor: pointer;
+    background-color: #86b5ea80;
+}
+
+.searchBar > button, .searchBar > input{
+    background-color: white;
+    border: 2px solid white;
+    padding: 20px 15px 20px 15px;
+    font-size: 15px;
+}
+
+.searchBar > button:nth-child(2){
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-right: 1px solid rgb(197, 197, 197);
+    
+}
+
+.searchBar > button:last-child{
+    position: relative;
+    border-radius: 5px;
+    background-color: rgb(181, 0, 0);
+    color: white; 
+    right: 95px;
+    padding: 10px 20px 10px 20px
+}
+
+.searchBar > input{
+    width: 50vw;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-indent: 30px;
+}
+
+.searchBar > input:focus{
+    outline: none;
+}
+
+.searchBar > svg{
+    position: relative;
+    left: 280px;
+    top: 7px;
+    background-color: white;
+    
+}
+
+.searchBar-Label{
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+    gap: 15px;
+    background-color: white;
+    height: fit-content;
+    width: fit-content;
+    align-self: center;
+    justify-self: center;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.searchBar-Label > p:first-child{
+    padding: 5px 10px 5px 10px;
+    background-color: #004fa4c8;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.searchBar-Label > a{
+    text-decoration: none;
+    color: #004fa4c8;
+}
+
+.searchBar-Label > a:hover{
+    text-decoration: underline;
+}
+
+

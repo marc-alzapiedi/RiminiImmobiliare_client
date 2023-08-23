@@ -3,7 +3,7 @@ import Turtle from "../../Icons/Turtle"
 
 const Logo = () => {
     return (
-        <main>
+        <div className="Logo">
             <Link>                            
                 <Turtle />
                 Rimini Immobiliare
@@ -11,7 +11,7 @@ const Logo = () => {
             <Link>
                 Il N.1 per vendere e comprare
             </Link>
-        </main>
+        </div>
     )
 }
 
