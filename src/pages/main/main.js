@@ -18,11 +18,18 @@ import ArrowDown from '../../Icons/ArrowDown'
 import Search from '../../Icons/Search'
 import { Link } from 'react-router-dom'
 
+
+
+
 const Main = () => {
 
     const [loginMenu, setLoginMenu] = useState(false)
     const [rotateLoginArrow, setLoginArrow] = useState(false)
     const [rotateSearchArrow, setSearchArrow] = useState (false)
+    const [dropdownData, setData] = useState(
+        {searchbar: ''}
+    )
+
 
     const between = (x, min, max) => {
         return x >= min && x <= max
@@ -37,16 +44,21 @@ const Main = () => {
 
         }
 
-        // if (event.clientX < 200 && between(event.clientY, 250, 350)){
-        //     setSearchArrow(!rotateSearchArrow)
+        if (between(event.clientX, 190, 500) && between(event.clientY, 250, 350)){
+            setSearchArrow(!rotateSearchArrow)
 
-        // }
+        }
+
+    }
+
+    const handleChange = (event) => {
+        const {name, value} = event.target
+        console.log(value)
+
+        setData({...dropdownData, [name]: value})
 
     }
 
-    const handleSearchMenu = () => {
-
-    }
 
 
     return (
@@ -157,6 +169,71 @@ const Main = () => {
                         
                         
                     </nav>
+
+                    <Menu className={'searchDropdown'}>
+                        <MenuItem children={
+                            <label>
+                                <input type='radio' name='searchbar' value={'casa'} onChange={handleChange} checked={dropdownData.searchbar === 'casa'}/>
+                                Case - Appartamenti
+                            </label>
+                        }/>
+                        <MenuItem children={
+                            <label>
+                                <input type='radio' name='searchbar' value={'costruzioni'} onChange={handleChange} checked = {dropdownData.searchbar === 'costruzioni'}/>
+                                Nuove costruzioni
+                            </label>
+                        } />
+                        <MenuItem children={
+                            <label>
+                                <input type='radio' name='searchbar' value={'garage'} onChange={handleChange} checked = {dropdownData.searchbar === 'garage'}/>
+                                Garage - Posti auto
+                            </label>
+                        }/>
+
+                        <MenuItem children={
+                            <label>
+                                <input type='radio' name='searchbar' value={'palazzi'} onChange={handleChange} checked = {dropdownData.searchbar === 'palazzi'}/>
+                                Palazzi - Edifici
+                            </label>
+                        }/>
+
+                        <MenuItem children={
+                            <label>
+                                <input type='radio' name='searchbar' value={'uffici'} onChange={handleChange} checked = {dropdownData.searchbar === 'uffici'}/>
+                                Uffici - Coworking
+                            </label>
+                        }/>
+
+                        <MenuItem children={
+                            <label>
+                                <input type='radio' name='searchbar' value={'negozi'} onChange={handleChange} checked = {dropdownData.searchbar === 'negozi'}/>
+                                Negozi - Locali commerciali
+                            </label>
+                        }/>
+
+                        <MenuItem children={
+                            <label>
+                                <input type='radio' name='searchbar' value={'magazzini'} onChange={handleChange} checked = {dropdownData.searchbar === 'magazzini'}/>
+                                Magazzini - Depositi
+                            </label>
+                        }/>
+                        
+                        <MenuItem children={
+                            <label>
+                                <input type='radio' name='searchbar' value={'capannoni'} onChange={handleChange} checked = {dropdownData.searchbar === 'capannoni'}/>
+                                Capannoni
+                            </label>
+                        }/>
+
+                        <MenuItem children={
+                            <label>
+                                <input type='radio' name='searchbar' value={'terreni'} onChange={handleChange} checked = {dropdownData.searchbar === 'terreni'}/>
+                                Terreni
+                            </label>
+                        }/>
+                    </Menu>
+
+
 
                 </section>
 

@@ -310,4 +310,22 @@ header{
     text-decoration: underline;
 }
 
+.searchDropdown{
+    z-index: 1;
+    width: fit-content;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.searchDropdown > ul{
+    display: grid;
+    list-style: none;
+}
+
+.searchDropdown > ul > li{
+    padding: 8px 0 8px 0
+}
+
 
