@@ -26,8 +26,18 @@ const Main = () => {
     const [loginMenu, setLoginMenu] = useState(false)
     const [rotateLoginArrow, setLoginArrow] = useState(false)
     const [rotateSearchArrow, setSearchArrow] = useState (false)
+    const [dropdownMenu, setDropDown] = useState(false)
+    const [buttonStyle, setButtonStyle] = useState({
+        0: true,
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false
+    })
+
     const [dropdownData, setData] = useState(
-        {searchbar: ''}
+        {searchbar: 'Case - Appartamenti'}
     )
 
 
@@ -36,7 +46,7 @@ const Main = () => {
     }
 
     const handleDropdown = (event) => {
-        // console.log(event.clientX, event.clientY)
+        console.log(event.clientX, event.clientY)
 
         if (event.clientX > 1100 && event.clientY < 60){
             setLoginArrow(!rotateLoginArrow)
@@ -44,21 +54,43 @@ const Main = () => {
 
         }
 
-        if (between(event.clientX, 190, 500) && between(event.clientY, 250, 350)){
+        if (between(event.clientX, 190, 800) && between(event.clientY, 250, 350)){
             setSearchArrow(!rotateSearchArrow)
+            setDropDown(!dropdownMenu)
 
         }
 
     }
 
     const handleChange = (event) => {
-        const {name, value} = event.target
-        console.log(value)
+        const {name, value, checked} = event.target
+        // console.log(name, value, checked, dropdownData)
+        
 
         setData({...dropdownData, [name]: value})
 
+        if (checked){
+
+            setDropDown(!dropdownMenu)
+            setSearchArrow(!rotateSearchArrow)
+        }
+
     }
 
+    const handleClick = (event) => {
+
+        const {target} = event
+
+
+        Object.keys(buttonStyle).map(key => {
+            return buttonStyle[key] = false
+        })
+
+        setButtonStyle({...buttonStyle, [Object.entries({...target})[0][1].index]: !Object.values(buttonStyle)[Object.entries({...target})[0][1].index]})
+        
+    
+        
+    }
 
 
     return (
@@ -88,8 +120,9 @@ const Main = () => {
                             </button>
                         </nav>
 
-                        <GridSpacer />
+                    
 
+                        <GridSpacer />
                         {loginMenu && 
 
                         <Menu className={'loginMenu'}>
@@ -122,47 +155,147 @@ const Main = () => {
 
                     <nav>
                         <div className='searchBar-Menu'>
-                            <button>Compra</button>
-                            <button>Affitta</button>
-                            <button>Vendi</button>
-                            <button>Valuta</button>
-                            <button>Aste</button>
-                            <button>Agenzie</button>
+                            <button onClick={handleClick}className = {buttonStyle[0] && 'active'}>Compra</button>
+                            <button onClick={handleClick}className={buttonStyle[1] && 'active'}>Affitta</button>
+                            <button onClick={handleClick}className={buttonStyle[2] && 'active'}>Vendi</button>
+                            <button onClick={handleClick}className={buttonStyle[3] && 'active'}>Valuta</button>
+                            <button onClick={handleClick}className={buttonStyle[4] && 'active'}>Aste</button>
+                            <button onClick={handleClick}className={buttonStyle[5] && 'active'}>Agenzie</button>
                         </div>
 
 
                         <div className='searchBar'>
 
-                            <Search />
-                            <button onClick={handleDropdown}>
-                                Text dependent on selection
-                                <ArrowDown rotateArrow = {rotateSearchArrow} condition_1 = {'arrow up down'} condition_2 = {'arrow down'}/>
-                            </button>
-                            <input type='text' placeholder='Text dependent on button selection'/>
+                            {(buttonStyle[1] || buttonStyle[0] || buttonStyle[4]) &&
+                            <>
+                                <Search  className={"compra affitta aste"}/>
+                                <button onClick={handleDropdown} className={buttonStyle[0] ? 'active' : 'unactive'}>
+                                    {dropdownData.searchbar}
+                                    <ArrowDown rotateArrow = {rotateSearchArrow} condition_1 = {'arrow up down'} condition_2 = {'arrow down'}/>
+                                </button>
+                                <input type='text' placeholder='Inserisci comune, zona o metro' className={"compra affitta aste"}/>
 
-                            <button>
-                                Cerca
-                            </button>
+                                <button className={"compra affitta aste"}>
+                                    Cerca
+                                </button>
+                            </>}
 
+                            {(buttonStyle[2] || buttonStyle[3]) && 
+                            <>
+                                <Search  className = 'vendi valuta'/>
+                                <input type='text' placeholder="Inserisci l'indirizzo dell'immobile" className = 'vendi valuta'/>
+                                <button className = 'vendi valuta'>
+                                    {buttonStyle[2] ? 'Vendi' : 'Valuta'}
+                                </button>
+                            </>
+                            }
+
+                            {
+                                buttonStyle[5] && 
+                                <>
+                                <Search  className={'agenzie'}/>
+                                <input type='text' placeholder="Inserisci il nome dell'agenzia" className={'agenzie'}/>
+                                <input type='text' placeholder='Inserisci comune, zona o metro' className={'agenzie'}/>
+                                <button className={'agenzie'}>
+                                    Cerca
+                                </button>
+
+                                </>
+                            }
 
                             
+
+
+
+                                
 
                         </div>
 
-                        <div className='searchBar-Label'>
+                        <div className='Label'>
+
+
+                            {dropdownMenu ? <Menu className={'searchDropdown'}>
+                                <MenuItem children={
+                                    <label>
+                                        <input type='radio' name='searchbar' value={'Case - Appartamenti'} onChange={handleChange} checked={dropdownData.searchbar === 'Case - Appartamenti'}/>
+                                        Case - Appartamenti
+                                    </label>
+                                }/>
+                                <MenuItem children={
+                                    <label>
+                                        <input type='radio' name='searchbar' value={'Nuove costruzioni'} onChange={handleChange} checked = {dropdownData.searchbar === 'Nuove costruzioni'}/>
+                                        Nuove costruzioni
+                                    </label>
+                                } />
+                                <MenuItem children={
+                                    <label>
+                                        <input type='radio' name='searchbar' value={'Garage - Posti auto'} onChange={handleChange} checked = {dropdownData.searchbar === 'Garage - Posti auto'}/>
+                                        Garage - Posti auto
+                                    </label>
+                                }/>
+
+
+                                <MenuItem children={
+                                    <label>
+                                        <input type='radio' name='searchbar' value={'Palazzi - Edifici'} onChange={handleChange} checked = {dropdownData.searchbar === 'Palazzi - Edifici'}/>
+                                        Palazzi - Edifici
+                                    </label>
+                                }/>
+
+                                <MenuItem children={
+                                    <label>
+                                        <input type='radio' name='searchbar' value={'Uffici - Coworking'} onChange={handleChange} checked = {dropdownData.searchbar === 'Uffici - Coworking'}/>
+                                        Uffici - Coworking
+                                    </label>
+                                }/>
+
+                                <MenuItem children={
+                                    <label>
+                                        <input type='radio' name='searchbar' value={'Negozi - Locali commerciali'} onChange={handleChange} checked = {dropdownData.searchbar === 'Negozi - Locali commerciali'}/>
+                                        Negozi - Locali commerciali
+                                    </label>
+                                }/>
+
+                                <MenuItem children={
+                                    <label>
+                                        <input type='radio' name='searchbar' value={'Magazzini - Depositi'} onChange={handleChange} checked = {dropdownData.searchbar === 'Magazzini - Depositi'}/>
+                                        Magazzini - Depositi
+                                    </label>
+                                }/>
+                                
+                                <MenuItem children={
+                                    <label>
+                                        <input type='radio' name='searchbar' value={'Capannoni'} onChange={handleChange} checked = {dropdownData.searchbar === 'Capannoni'}/>
+                                        Capannoni
+                                    </label>
+                                }/>
+
+                                <MenuItem children={
+                                    <label>
+                                        <input type='radio' name='searchbar' value={'Terreni'} onChange={handleChange} checked = {dropdownData.searchbar === 'Terreni'}/>
+                                        Terreni
+                                    </label>
+                                }/>
+                            </Menu> : <GridSpacer />}
+
+                                
+
+                            <div className='searchBar-Label'>
+
+                                <p>
+                                    N.1
+                                </p>
+
+                                <p>
+
+                                    RiminiImmobiliare.it è il N.1 nella provincia di Rimini. 
+                                </p>
+
+                                <Link>
+                                    Scopri perché
+                                </Link>
+                            </div>
                             
-                            <p>
-                                N.1
-                            </p>
-
-                            <p>
-
-                                RiminiImmobiliare.it è il N.1 nella provincia di Rimini. 
-                            </p>
-
-                            <Link>
-                                Scopri perché
-                            </Link>
 
                         </div>
 
@@ -170,68 +303,6 @@ const Main = () => {
                         
                     </nav>
 
-                    <Menu className={'searchDropdown'}>
-                        <MenuItem children={
-                            <label>
-                                <input type='radio' name='searchbar' value={'casa'} onChange={handleChange} checked={dropdownData.searchbar === 'casa'}/>
-                                Case - Appartamenti
-                            </label>
-                        }/>
-                        <MenuItem children={
-                            <label>
-                                <input type='radio' name='searchbar' value={'costruzioni'} onChange={handleChange} checked = {dropdownData.searchbar === 'costruzioni'}/>
-                                Nuove costruzioni
-                            </label>
-                        } />
-                        <MenuItem children={
-                            <label>
-                                <input type='radio' name='searchbar' value={'garage'} onChange={handleChange} checked = {dropdownData.searchbar === 'garage'}/>
-                                Garage - Posti auto
-                            </label>
-                        }/>
-
-                        <MenuItem children={
-                            <label>
-                                <input type='radio' name='searchbar' value={'palazzi'} onChange={handleChange} checked = {dropdownData.searchbar === 'palazzi'}/>
-                                Palazzi - Edifici
-                            </label>
-                        }/>
-
-                        <MenuItem children={
-                            <label>
-                                <input type='radio' name='searchbar' value={'uffici'} onChange={handleChange} checked = {dropdownData.searchbar === 'uffici'}/>
-                                Uffici - Coworking
-                            </label>
-                        }/>
-
-                        <MenuItem children={
-                            <label>
-                                <input type='radio' name='searchbar' value={'negozi'} onChange={handleChange} checked = {dropdownData.searchbar === 'negozi'}/>
-                                Negozi - Locali commerciali
-                            </label>
-                        }/>
-
-                        <MenuItem children={
-                            <label>
-                                <input type='radio' name='searchbar' value={'magazzini'} onChange={handleChange} checked = {dropdownData.searchbar === 'magazzini'}/>
-                                Magazzini - Depositi
-                            </label>
-                        }/>
-                        
-                        <MenuItem children={
-                            <label>
-                                <input type='radio' name='searchbar' value={'capannoni'} onChange={handleChange} checked = {dropdownData.searchbar === 'capannoni'}/>
-                                Capannoni
-                            </label>
-                        }/>
-
-                        <MenuItem children={
-                            <label>
-                                <input type='radio' name='searchbar' value={'terreni'} onChange={handleChange} checked = {dropdownData.searchbar === 'terreni'}/>
-                                Terreni
-                            </label>
-                        }/>
-                    </Menu>
 
 
 

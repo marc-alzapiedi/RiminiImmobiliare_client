@@ -109,8 +109,8 @@ header{
     background-color: white;
     display: grid;
     gap: 5px;
-    margin-right: 49px;
-    margin-top: 18px;
+    margin-right: 50px;
+    margin-top: 20px
 }
 
 .loginMenu > ul{
@@ -209,14 +209,15 @@ header{
 .top-header > nav{
     display: grid;
     grid-template-rows: min-content min-content;
-}
-
-.searchBar-Menu, .searchBar{
-    text-align: center;
+    justify-self: center;
 }
 
 .searchBar-Menu{
-    margin-right: 33.8vw;
+    margin-left: 30px;
+}
+
+.searchBar-Menu > .active{
+    background-color: #4fa3fea4;
 }
 
 .searchBar-Menu > button{
@@ -231,21 +232,55 @@ header{
 
 .searchBar-Menu > button:hover{
     cursor: pointer;
-    background-color: #86b5ea80;
 }
 
-.searchBar > button, .searchBar > input{
+.searchBar > button, .searchBar > input.compra.affitta.aste, .searchBar > input.agenzie, .searchBar > input.vendi.valuta{
     background-color: white;
     border: 2px solid white;
     padding: 20px 15px 20px 15px;
     font-size: 15px;
 }
 
-.searchBar > button:nth-child(2){
+.searchBar > .arrow{
+    text-align: end;
+}
+
+.searchBar > .unactive, .searchBar > input.agenzie:nth-child(2){
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-right: 1px solid rgb(197, 197, 197);
-    
+    width: 244.81px;
+    text-align: center;
+}
+
+/* .searchBar > input.agenzie:nth-child(2){
+    text-align: start;
+} */
+
+
+.searchBar > .vendi, .valuta{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.searchBar > input.vendi.valuta{
+    width: calc(244.81px + 50vw);
+}
+
+.searchBar > svg.vendi.valuta{
+    left: 40px;
+}
+
+.searchBar{
+    width: fit-content;
+}
+
+.searchBar > .active{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 10px;
+    border-right: 1px solid rgb(197, 197, 197);
+    width: 244.81px;
+    text-align: center;
 }
 
 .searchBar > button:last-child{
@@ -254,11 +289,18 @@ header{
     background-color: rgb(181, 0, 0);
     color: white; 
     right: 95px;
-    padding: 10px 20px 10px 20px
+    padding: 10px 20px 10px 20px;
+    width: 84.02px
 }
 
-.searchBar > input{
+.searchBar > input.compra.affitta.aste, .searchBar > input.agenzie:nth-child(3){
     width: 50vw;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-indent: 30px;
+}
+
+.searchBar > input.vendi.valuta{
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     text-indent: 30px;
@@ -278,17 +320,18 @@ header{
 
 .searchBar-Label{
     display: grid;
-    grid-template-columns: max-content max-content max-content;
+    grid-template-columns: max-content max-content max-content max-content;
     gap: 15px;
     background-color: white;
     height: fit-content;
     width: fit-content;
-    align-self: center;
-    justify-self: center;
+    align-self: top;
+    margin-top: 45px;
     padding: 10px;
     border: 2px solid transparent;
     border-radius: 10px;
     align-items: center;
+    justify-self: center;
 }
 
 .searchBar-Label > p:first-child{
@@ -310,7 +353,15 @@ header{
     text-decoration: underline;
 }
 
+
+
+.Label{
+    display: grid;
+    grid-template-columns: 280.63px 43vw
+    
+}
 .searchDropdown{
+    margin-left: 25px;
     z-index: 1;
     width: fit-content;
     background-color: white;
