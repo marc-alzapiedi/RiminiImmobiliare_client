@@ -16,12 +16,13 @@ import MenuItem from '../../components/Menu/MenuItem'
 import Logo from '../../components/Logo'
 import ArrowDown from '../../Icons/ArrowDown'
 import Search from '../../Icons/Search'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 
 
 const Main = () => {
+    const navigate = useNavigate()
 
     const [loginMenu, setLoginMenu] = useState(false)
     const [rotateLoginArrow, setLoginArrow] = useState(false)
@@ -41,20 +42,21 @@ const Main = () => {
     )
 
 
-    const between = (x, min, max) => {
-        return x >= min && x <= max
-    }
+    // const between = (x, min, max) => {
+    //     return x >= min && x <= max
+    // }
 
     const handleDropdown = (event) => {
+        console.log(event.target.className, event.target)
         console.log(event.clientX, event.clientY)
 
-        if (event.clientX > 1100 && event.clientY < 60){
+        if (event.clientY < 60){
             setLoginArrow(!rotateLoginArrow)
             setLoginMenu(!loginMenu)
 
         }
 
-        if (between(event.clientX, 190, 800) && between(event.clientY, 250, 350)){
+        if (event.target.className === 'active' || event.target.className === 'arrow down' || event.target.className === 'arrow up down'){
             setSearchArrow(!rotateSearchArrow)
             setDropDown(!dropdownMenu)
 
@@ -80,6 +82,7 @@ const Main = () => {
     const handleClick = (event) => {
 
         const {target} = event
+        // console.log(target.className, dropdownData.searchbar)
 
 
         Object.keys(buttonStyle).map(key => {
@@ -90,6 +93,26 @@ const Main = () => {
         
     
         
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        console.log(event)
+
+        if (event.target[2].className === 'compra'){
+            navigate(`/compra/${dropdownData.searchbar}/${event.target[1].value}`)
+            
+        }
+
+        if (event.target[2].className === 'affitta'){
+            navigate(`/affitta/${dropdownData.searchbar}/${event.target[1].value}`)
+
+        }
+
+        if (event.target[2].className === 'aste'){
+            navigate(`/aste/${dropdownData.searchbar}/${event.target[1].value}`)
+        }
+
     }
 
 
@@ -115,7 +138,7 @@ const Main = () => {
                                 <ProfileIcon />
                                 {/* <i className = {rotateLoginArrow ?`arrow down up` : `arrow down`}></i> */}
 
-                                <ArrowDown rotateArrow = {rotateLoginArrow} condition_1 = {'arrow down up'} condition_2 = {'arrow down'}/>
+                                <ArrowDown rotateArrow = {rotateLoginArrow} condition_1 = {'arrow down up login'} condition_2 = {'arrow down login'}/>
                               
                             </button>
                         </nav>
@@ -164,7 +187,7 @@ const Main = () => {
                         </div>
 
 
-                        <div className='searchBar'>
+                        <form className='searchBar' onSubmit={handleSubmit}>
 
                             {(buttonStyle[1] || buttonStyle[0] || buttonStyle[4]) &&
                             <>
@@ -173,9 +196,9 @@ const Main = () => {
                                     {dropdownData.searchbar}
                                     <ArrowDown rotateArrow = {rotateSearchArrow} condition_1 = {'arrow up down'} condition_2 = {'arrow down'}/>
                                 </button>
-                                <input type='text' placeholder='Inserisci comune, zona o metro' className={"compra affitta aste"}/>
+                                <input type='text' placeholder='Inserisci comune, zona o metro' className={"compra affitta aste"} required/>
 
-                                <button className={"compra affitta aste"}>
+                                <button className={buttonStyle[0] ? 'compra' : buttonStyle[1] ? 'affitta' : 'aste'}>
                                     Cerca
                                 </button>
                             </>}
@@ -184,7 +207,7 @@ const Main = () => {
                             <>
                                 <Search  className = 'vendi valuta'/>
                                 <input type='text' placeholder="Inserisci l'indirizzo dell'immobile" className = 'vendi valuta'/>
-                                <button className = 'vendi valuta'>
+                                <button className = 'vendi valuta' >
                                     {buttonStyle[2] ? 'Vendi' : 'Valuta'}
                                 </button>
                             </>
@@ -209,7 +232,7 @@ const Main = () => {
 
                                 
 
-                        </div>
+                        </form>
 
                         <div className='Label'>
 
@@ -308,23 +331,7 @@ const Main = () => {
 
                 </section>
 
-                <section className='body_1'>
-                    Ex esse deserunt duis velit excepteur labore voluptate sit elit deserunt. Pariatur culpa qui aute commodo in in dolor do. Lorem non in id dolore enim duis eu ullamco. Duis officia sit qui dolor excepteur qui. Nostrud adipisicing sint eu magna laborum commodo culpa enim irure do sint elit voluptate. Incididunt commodo officia eiusmod ut proident labore in. Irure nostrud anim do aute laboris dolor laborum.
-                </section>
-
-                <section className='body_2'>
-                    Non enim aliqua quis Lorem dolor adipisicing ea. Voluptate cillum ex culpa quis commodo aliqua elit consectetur dolore incididunt aliquip ullamco. Amet laborum veniam fugiat incididunt et sunt cillum ex duis ex. Laborum duis deserunt ullamco ullamco ad est aute magna laboris amet sunt esse.
-
-                </section>
-
-                <section className='bottom_footer'>
-                    Dolore excepteur anim exercitation aliqua. Laboris esse et consequat laboris aliquip pariatur pariatur ad est deserunt duis sunt nisi. Qui qui pariatur sint cupidatat commodo sint velit do reprehenderit laboris ad est commodo quis. Amet sit duis enim est. Ullamco eu reprehenderit esse mollit velit ut nisi consequat sint mollit ad.
-
-                </section>
-
-                <footer>
-                    Ea sit mollit exercitation id ut dolor occaecat commodo aute nulla. Ea aliqua adipisicing deserunt culpa esse commodo enim dolor excepteur ea. Aliquip aliquip do elit duis veniam sit cupidatat cupidatat. Tempor anim ea eu laboris enim minim veniam sunt occaecat ut et sunt aute. Veniam adipisicing non do nisi laborum. Ullamco labore tempor incididunt aliquip ad. Nulla voluptate consectetur consectetur laborum non non tempor.
-                </footer>
+               
 
             </Container>
         </>

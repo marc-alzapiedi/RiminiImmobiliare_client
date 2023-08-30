@@ -7,7 +7,7 @@
 
 .container{
     display: grid;
-    grid-template-rows: 480px 550px 1000px 350px 100px
+    grid-template-rows: 100vh;
 }
 
 .top-header{
@@ -73,6 +73,7 @@ header{
 
 .loginLinks{
     text-align: end;
+    /* margin-top: 15px; */
 }
 
 .logIns:first-child{
@@ -150,6 +151,10 @@ header{
     grid-template-columns: 40px 1fr;
     align-items: center;
     gap: 20px;
+}
+
+.loginMenu > ul > li:nth-child(4){
+    stroke: black;
 }
 
 .loginMenu > ul > li:first-child{
@@ -326,7 +331,7 @@ header{
     height: fit-content;
     width: fit-content;
     align-self: top;
-    margin-top: 45px;
+    margin-top: 120px;
     padding: 10px;
     border: 2px solid transparent;
     border-radius: 10px;

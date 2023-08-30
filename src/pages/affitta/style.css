@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container.Affitta{
+    display: grid;
+    grid-template-rows: 90px 87.931vh;
+}
+
+
+.top-bar{
+    background-color: #004fa4c8;
+
+}
+
+.top-bar > .Logo{
+    place-self: start;
+    height: 100px;
+    width: 300px;
+    grid-template-columns: max-content max-content;
+    align-content: start;
+
+}
+
+.top-bar > .Logo > a > svg{
+    height: 90px;
+    width: 90px;
+    place-self: center;
+}
+
+.top-bar > .loginLinks{
+    margin-top: 15px;
+}
+
+.top-bar > .loginMenu{
+    margin-top: 0;
+
+    margin-right: 45px;
+    position: relative;
+    bottom: 30px;
+}
+
+
+
+
+
