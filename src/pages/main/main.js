@@ -185,12 +185,12 @@ const Main = () => {
 
                     <nav>
                         <div className='searchBar-Menu'>
-                            <button onClick={handleClick}className = {buttonStyle[0] && 'active'}>Compra</button>
-                            <button onClick={handleClick}className={buttonStyle[1] && 'active'}>Affitta</button>
-                            <button onClick={handleClick}className={buttonStyle[2] && 'active'}>Vendi</button>
-                            <button onClick={handleClick}className={buttonStyle[3] && 'active'}>Valuta</button>
-                            <button onClick={handleClick}className={buttonStyle[4] && 'active'}>Aste</button>
-                            <button onClick={handleClick}className={buttonStyle[5] && 'active'}>Agenzie</button>
+                            <button onClick={handleClick} className = {buttonStyle[0] && 'active'}>Compra</button>
+                            <button onClick={handleClick} className={buttonStyle[1] && 'active'}>Affitta</button>
+                            <button onClick={handleClick} className={buttonStyle[2] && 'active'}>Vendi</button>
+                            <button onClick={handleClick} className={buttonStyle[3] && 'active'}>Valuta</button>
+                            <button onClick={handleClick} className={buttonStyle[4] && 'active'}>Aste</button>
+                            <button onClick={handleClick} className={buttonStyle[5] && 'active'}>Agenzie</button>
                         </div>
 
 
@@ -199,7 +199,7 @@ const Main = () => {
                             {(buttonStyle[1] || buttonStyle[0] || buttonStyle[4]) &&
                             <>
                                 <Search  className={"compra affitta aste"}/>
-                                <button onClick={handleDropdown} className={buttonStyle[0] ? 'active' : 'unactive'}>
+                                <button onClick={handleDropdown} className={(buttonStyle[0] || buttonStyle[1] || buttonStyle[4]) ? 'active' : 'unactive'}>
                                     {dropdownData.searchbar}
                                     <ArrowDown rotateArrow = {rotateSearchArrow} condition_1 = {'arrow up down'} condition_2 = {'arrow down'}/>
                                 </button>
