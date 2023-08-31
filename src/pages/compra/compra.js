@@ -22,6 +22,9 @@ import Camere from '../../Icons/Camere'
 import Superficie from '../../Icons/Superficie'
 
 function insertAtIndex(str, substring, index) {
+    if (index === 1){
+        return str
+    }
     return str.slice(0, index) + substring + str.slice(index);
 }
 
@@ -47,16 +50,14 @@ const Compra = () => {
 
     
 
-    // console.log(params)
-
     useEffect(() => {
-        fetch(`http://localhost:4000/${params.buy}/${params.type}/${params.province}`)
+        fetch(`http://localhost:4000/compra/${params.type}/${params.province}`)
         .then((response) => response.json())
         .then((data) => {
             const list = data
             setListData(list.data)
         })
-    }, [params.type, params.buy, params.province])
+    }, [params.type, params.province])
 
 
     const handleDropdown = (event) => {
@@ -72,17 +73,9 @@ const Compra = () => {
             setTypeArrow(!rotateTypeArrow)
             setTypeMenu(!typeMenu)
             setdropType(!dropdownType)
-
-            
-            // fetch(`http://localhost:4000/${params.buy}/${params.type}/${params.province}`)
-            // .then((response) => response.json())
-            // .then((data) => {
-                //     const list = data
-                //     setListData(list.data)
-                // })
                 
                 
-            }
+        }
             
             
             if (event.target.innerText !== 'Vendite' && event.target.className !== 'type' && event.target.className !== 'arrow down buyArrow' && event.target.className !== 'arrow up down buyArrow' && event.target.className !== 'arrow down typeArrow' && event.target.className !== 'arrow up down typeArrow'){
@@ -107,7 +100,7 @@ const Compra = () => {
                 console.log(dropdownData.searchbar)
                 setdropType(!dropdownType)
                 setTypeArrow(!rotateTypeArrow)
-                navigate(`/${params.buy}/${value}/${params.province}`)
+                navigate(`/compra/${value}/${params.province}`)
             }
             
         }
@@ -115,7 +108,17 @@ const Compra = () => {
         // console.log(dropdownData.searchbar)
         
         const handleClick = (event) => {
-            // console.log(event.target.innerText, event)
+            console.log(event.target.innerText)
+
+            if (event.target.innerText === 'Affitte'){
+                navigate(`/affitta/${dropdownData.searchbar}/${params.province}`)
+
+            }
+
+            if (event.target.innerText === 'Aste'){
+                navigate(`/aste/${dropdownData.searchbar}/${params.province}`)
+
+            }
 
         }
 
@@ -164,7 +167,7 @@ const Compra = () => {
 
             <header className='second-bar'>
                 <button onClick={handleDropdown} className='buy'>
-                    {params.buy === 'compra' && 'Vendite'}
+                    Vendite
                     <ArrowDown rotateArrow = {rotateBuyArrow} condition_1 = {'arrow up down buyArrow'} condition_2 = {'arrow down buyArrow'}/>
                 </button>
                     
