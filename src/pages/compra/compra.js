@@ -4,7 +4,7 @@ import Logo from '../../components/Logo'
 import ProfileIcon from '../../Icons/ProfileIcon'
 import ArrowDown from '../../Icons/ArrowDown'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Messagge from '../../Icons/Message'
 import Heart from '../../Icons/Heart'
 import Bell from '../../Icons/Bell'
@@ -16,10 +16,20 @@ import Plus from '../../Icons/Plus'
 import GridSpacer from '../../components/GridSpacer'
 import Menu from '../../components/Menu'
 import MenuItem from '../../components/Menu/MenuItem'
-import Locali from '../../Icons/locali'
+import Piani from '../../Icons/Piani'
+import Bagni from '../../Icons/Bagni'
+import Camere from '../../Icons/Camere'
+import Superficie from '../../Icons/Superficie'
+
+function insertAtIndex(str, substring, index) {
+    return str.slice(0, index) + substring + str.slice(index);
+}
 
 
 const Compra = () => {
+    const params = useParams()
+    const navigate = useNavigate()
+    console.log(params)
 
     const [rotateLoginArrow, setLoginArrow] = useState(false)
     const [loginMenu, setLoginMenu] = useState(false)
@@ -28,7 +38,7 @@ const Compra = () => {
     const [rotateTypeArrow, setTypeArrow] = useState(false)
     const [typeMenu, setTypeMenu] = useState(false)
     const [dropdownData, setData] = useState(
-        {searchbar: 'Case - Appartamenti'}
+        {searchbar: params.type}
     )
     const [dropdownType, setdropType] = useState(false)
     const [dropdownBuy, setdropBuy] = useState(false)
@@ -37,21 +47,16 @@ const Compra = () => {
 
     
 
-    const params = useParams()
+    // console.log(params)
 
     useEffect(() => {
-        fetch('http://localhost:4000/buy')
+        fetch(`http://localhost:4000/${params.buy}/${params.type}/${params.province}`)
         .then((response) => response.json())
         .then((data) => {
             const list = data
             setListData(list.data)
         })
-    }, [])
-
-    console.log(dataToList)
-
-
-
+    }, [params.type, params.buy, params.province])
 
 
     const handleDropdown = (event) => {
@@ -67,40 +72,52 @@ const Compra = () => {
             setTypeArrow(!rotateTypeArrow)
             setTypeMenu(!typeMenu)
             setdropType(!dropdownType)
-           
+
+            
+            // fetch(`http://localhost:4000/${params.buy}/${params.type}/${params.province}`)
+            // .then((response) => response.json())
+            // .then((data) => {
+                //     const list = data
+                //     setListData(list.data)
+                // })
+                
+                
+            }
+            
+            
+            if (event.target.innerText !== 'Vendite' && event.target.className !== 'type' && event.target.className !== 'arrow down buyArrow' && event.target.className !== 'arrow up down buyArrow' && event.target.className !== 'arrow down typeArrow' && event.target.className !== 'arrow up down typeArrow'){
+                
+                setLoginArrow(!rotateLoginArrow)
+                setLoginMenu(!loginMenu)
+            }
+            
+            
+            
+            
         }
-
-
-        if (event.target.innerText !== 'Vendite' && event.target.className !== 'type' && event.target.className !== 'arrow down buyArrow' && event.target.className !== 'arrow up down buyArrow' && event.target.className !== 'arrow down typeArrow' && event.target.className !== 'arrow up down typeArrow'){
-
-            setLoginArrow(!rotateLoginArrow)
-            setLoginMenu(!loginMenu)
-        }
-
-
-
-
-    }
-
-    const handleChange = (event) => {
-        const {name, value, checked} = event.target
-        // console.log(name, value, checked, dropdownData)
         
-
-        setData({...dropdownData, [name]: value})
-
-        if (checked){
-
-            setdropType(!dropdownType)
-            setTypeArrow(!rotateTypeArrow)
+        const handleChange = (event) => {
+            const {name, value, checked} = event.target
+            // console.log(name, value, checked, dropdownData)
+            
+            
+            setData({...dropdownData, [name]: value})
+            
+            if (checked){
+                console.log(dropdownData.searchbar)
+                setdropType(!dropdownType)
+                setTypeArrow(!rotateTypeArrow)
+                navigate(`/${params.buy}/${value}/${params.province}`)
+            }
+            
         }
 
-    }
+        // console.log(dropdownData.searchbar)
+        
+        const handleClick = (event) => {
+            // console.log(event.target.innerText, event)
 
-    const handleClick = (event) => {
-        // console.log(event.target.innerText, event)
-
-    }
+        }
 
     return (
         <Container className={'Compra'}>
@@ -247,29 +264,69 @@ const Compra = () => {
                     <li key={index}>
                         <img src={object.image} alt=''/>
                         <div className='listDetails'>
-                            <p>
-                               {object.price} 
-                            </p>
+                            <div>
+                               {insertAtIndex(object.price, '.', object.price.length - 3)}
+                               <div className='navButtons'>
+                                <button>
+
+                                    <div>
+                                        <Messagge />
+                                    
+                                        MESSAGGIO
+                                    </div>
+
+                                 
+                                </button>
+
+                                <button>
+                                    <Garbage />
+                                </button>
+
+                                <button>
+                                    <Heart />
+                                </button>
+                            </div> 
+                            </div>
 
                             <p>
                                 {object.address}
                             </p>
 
                             <div className='propertyDetails'>
-                                <p>
+                                <div className='propertySpecs'>
+                                    <Piani />
                                     {object.floors}
-                                </p>
-                                <p>
+                                    <p>
+
+                                        Piani
+                                    </p>
+                                </div>
+                                <div className='propertySpecs'>
+                                    <Bagni />
                                     {object.bathrooms}
-                                </p>
+                                    <p>
 
-                                <p>
+                                        Bagni
+                                    </p>
+                                </div>
+
+                                <div className='propertySpecs'>
+                                    <Camere />
                                     {object.bedrooms}
-                                </p>
+                                    <p>
 
-                                <p>
-                                    {object.sqFootage}
-                                </p>
+                                        Camere
+                                    </p>
+                                </div>
+
+                                <div className='propertySpecs'>
+                                    <Superficie />
+                                    {`${object.sqFootage} m²`}
+                                    <p>
+
+                                        Superficie 
+                                    </p>
+                                </div>
 
                             </div>
 
@@ -284,20 +341,7 @@ const Compra = () => {
 
                             </div>
 
-                            <div className='navButtons'>
-                                <button>
-                                    <Messagge />
-                                    MESSAGGIO
-                                </button>
-
-                                <button>
-                                    <Garbage />
-                                </button>
-
-                                <button>
-                                    <Heart />
-                                </button>
-                            </div>
+                            
 
 
 

@@ -37,50 +37,56 @@ const Main = () => {
         5: false
     })
 
+
     const [dropdownData, setData] = useState(
         {searchbar: 'Case - Appartamenti'}
     )
 
 
-    // const between = (x, min, max) => {
-    //     return x >= min && x <= max
-    // }
+    const between = (x, min, max) => {
+        return x >= min && x <= max
+    }
 
     const handleDropdown = (event) => {
+
+
         console.log(event.target.className, event.target)
         console.log(event.clientX, event.clientY)
 
-        if (event.clientY < 60){
+        
+        if (between(event.clientY, 1, 60)){
             setLoginArrow(!rotateLoginArrow)
             setLoginMenu(!loginMenu)
-
+            
         }
-
-        if (event.target.className === 'active' || event.target.className === 'arrow down' || event.target.className === 'arrow up down'){
+        
+        if ((event.target.className === 'active' || event.target.className === 'arrow down' || event.target.className === 'arrow up down') && event.clientY !== 0){
             setSearchArrow(!rotateSearchArrow)
             setDropDown(!dropdownMenu)
-
+            
         }
-
+        
     }
-
+    
     const handleChange = (event) => {
+
+
         const {name, value, checked} = event.target
         // console.log(name, value, checked, dropdownData)
         
-
+        
         setData({...dropdownData, [name]: value})
-
+        
         if (checked){
-
+            
             setDropDown(!dropdownMenu)
             setSearchArrow(!rotateSearchArrow)
         }
-
+        
     }
 
     const handleClick = (event) => {
-
+        
         const {target} = event
         // console.log(target.className, dropdownData.searchbar)
 
@@ -97,10 +103,11 @@ const Main = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(event)
-
+        
+        
         if (event.target[2].className === 'compra'){
             navigate(`/compra/${dropdownData.searchbar}/${event.target[1].value}`)
+
             
         }
 
