@@ -32,8 +32,9 @@ To run this project
 
 ## UI Screenshots
 Note that this project is still under development and is subject to change. 
-![Main Page](https://photos.google.com/photo/AF1QipNGalEYc4LcbJnVi4EHw7_y09V2-CGTGywZA_Uz)
+![Alt text](<Screenshot 2023-09-12 152221.png>)
 
-![Page with dropdowns](https://photos.google.com/photo/AF1QipMpTjWhb-cq_X6C3nn2b5GwIXKwTcJFDB-DtYt8)
+![Alt text](<Screenshot 2023-09-12 152531.png>)
 
-![Search Page](https://photos.google.com/photo/AF1QipOx5DFyR-Bss3BF8avLuwapLxbWWZtEQq5Bgzbp)
+![Alt text](<Screenshot 2023-09-12 152654.png>)
+
