@@ -1,5 +1,5 @@
 import './style.css'
-import Container from '../../components/Container'
+import Container from '../../components/container'
 import Logo from '../../components/Logo'
 import ProfileIcon from '../../Icons/ProfileIcon'
 import ArrowDown from '../../Icons/ArrowDown'

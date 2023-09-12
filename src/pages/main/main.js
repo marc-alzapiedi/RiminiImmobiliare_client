@@ -1,6 +1,6 @@
 import './style.css'
 import ProfileIcon from '../../Icons/ProfileIcon'
-import Container from '../../components/Container'
+import Container from '../../components/container'
 import Messagge from '../../Icons/Message'
 import Heart from '../../Icons/Heart'
 import Bell from '../../Icons/Bell'
