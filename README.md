@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Real-estate website replication
+A full-stack website made with React.js and ElephantSQL as a PostgreSQL database. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+- [Real-estate website replication](#real-estate-website-replication)
+  - [Table of Contents](#table-of-contents)
+  - [Background](#background)
+  - [Technologies](#technologies)
+  - [Setup](#setup)
+  - [UI Screenshots](#ui-screenshots)
 
-## Available Scripts
+## Background
+This is a full-stack project that is supposed to be a replication of [Immobiliare.it](https://www.immobiliare.it/?utm_source=bing&utm_medium=cpc&utm_campaign=search%7Cgeneric%7Csale%7Cit%7Call%7Cit&utm_term=agenzia%20immobiliare&utm_content=generic%7Cagencies%7Csale%7Cnomunicipality%7Cnozone%7Cnofilter%7Cit%7Call%7Cit%7Cstandard).  The idea was  to replicate the site with a client and server where a user can principally:
 
-In the project directory, you can run:
+- Make an http GET request to view a list of announcements and filter the results of different types of property listings, and real-estate agencies available in the searched area.
 
-### `npm start`
+- Make an http POST request to provide the necessary information to sell property and post announcements, see how much a property would sell for, and save announcements, searches, and send messages to sellers.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Seeded data has been created in the database that resembles default listings that any user can search for by searching for any city in the province of Rimini. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies
+Project is made with:
+- React.js
+- ElephantSQL
 
-### `npm test`
+## Setup
+To run this project
+1. Clone the repository.
+2. Run ```npm install``` to install the dependencies.
+3. Run ```npm start``` to start the live react app.
+4. Note that the backend server must also be run which can be found [here](https://github.com/marc-alzapiedi/fullstack_final_project_server)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## UI Screenshots
+Note that this project is still under development and is subject to change. 
+![Main Page](https://photos.google.com/photo/AF1QipNGalEYc4LcbJnVi4EHw7_y09V2-CGTGywZA_Uz)
 
-### `npm run build`
+![Page with dropdowns](https://photos.google.com/photo/AF1QipMpTjWhb-cq_X6C3nn2b5GwIXKwTcJFDB-DtYt8)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Search Page](https://photos.google.com/photo/AF1QipOx5DFyR-Bss3BF8avLuwapLxbWWZtEQq5Bgzbp)
