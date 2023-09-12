@@ -16,7 +16,7 @@ This is a full-stack project that is supposed to be a replication of [Immobiliar
 
 - Make an http POST request to provide the necessary information to sell property and post announcements, see how much a property would sell for, and save announcements, searches, and send messages to sellers.
 
-Seeded data has been created in the database that resembles default listings that any user can search for by searching for any city in the province of Rimini. 
+Seeded data has been created in the database that resembles default listings that any user can search for by searching for any city in the province of Rimini.
 
 ## Technologies
 Project is made with:
@@ -25,16 +25,15 @@ Project is made with:
 
 ## Setup
 To run this project
-1. Clone the repository.
+1. Fork and clone the repository.
 2. Run ```npm install``` to install the dependencies.
 3. Run ```npm start``` to start the live react app.
-4. Note that the backend server must also be run which can be found [here](https://github.com/marc-alzapiedi/fullstack_final_project_server)
+4. Note that the backend server must be run first which can be found [here](https://github.com/marc-alzapiedi/fullstack_final_project_server). Follow the instructions to run the server.
 
 ## UI Screenshots
-Note that this project is still under development and is subject to change. 
-![Alt text](<Screenshot 2023-09-12 152221.png>)
+Note that this project is still under development and is subject to change.
+![Main page](<Screenshot 2023-09-12 152221.png>)
 
-![Alt text](<Screenshot 2023-09-12 152531.png>)
+![Main page with dropwdowns](<Screenshot 2023-09-12 152531.png>)
 
-![Alt text](<Screenshot 2023-09-12 152654.png>)
-
+![Searchpage](<Screenshot 2023-09-12 152654.png>)
