@@ -54,6 +54,7 @@
     grid-template-columns: repeat(4, max-content);
     margin-bottom: 10px;
 }
+
 .container.Aste > ul > li > .listDetails > .propertyDetails > .propertySpecs{
     padding: 10px;
     color: #002347c8;

@@ -47,12 +47,40 @@ const Main = () => {
         return x >= min && x <= max
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+
+        console.log('submit fired')
+        
+        
+        if (event.target[2].className === 'compra'){
+            navigate(`/compra/${dropdownData.searchbar}/${event.target[1].value}`)
+
+            
+        }
+
+        if (event.target[2].className === 'affitta'){
+            navigate(`/affitta/${dropdownData.searchbar}/${event.target[1].value}`)
+
+        }
+
+        if (event.target[2].className === 'aste'){
+            navigate(`/aste/${dropdownData.searchbar}/${event.target[1].value}`)
+        }
+
+    }
+
     const handleDropdown = (event) => {
 
+        // console.log(event.target.className, event.target)
+        // console.log(event.clientX, event.clientY)
 
-        console.log(event.target.className, event.target)
-        console.log(event.clientX, event.clientY)
-
+        
+        console.log('click fired')
+        
+        
+        
         
         if (between(event.clientY, 1, 60)){
             setLoginArrow(!rotateLoginArrow)
@@ -61,11 +89,14 @@ const Main = () => {
         }
         
         if ((event.target.className === 'active' || event.target.className === 'arrow down' || event.target.className === 'arrow up down') && event.clientY !== 0){
+            event.preventDefault()
             setSearchArrow(!rotateSearchArrow)
             setDropDown(!dropdownMenu)
             
         }
+
         
+     
     }
     
     const handleChange = (event) => {
@@ -101,26 +132,7 @@ const Main = () => {
         
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        
-        
-        if (event.target[2].className === 'compra'){
-            navigate(`/compra/${dropdownData.searchbar}/${event.target[1].value}`)
-
-            
-        }
-
-        if (event.target[2].className === 'affitta'){
-            navigate(`/affitta/${dropdownData.searchbar}/${event.target[1].value}`)
-
-        }
-
-        if (event.target[2].className === 'aste'){
-            navigate(`/aste/${dropdownData.searchbar}/${event.target[1].value}`)
-        }
-
-    }
+    
 
 
     return (
@@ -194,7 +206,7 @@ const Main = () => {
                         </div>
 
 
-                        <form className='searchBar' onSubmit={handleSubmit}>
+                        <form className='searchBar' onSubmitCapture={handleSubmit}>
 
                             {(buttonStyle[1] || buttonStyle[0] || buttonStyle[4]) &&
                             <>
@@ -203,6 +215,7 @@ const Main = () => {
                                     {dropdownData.searchbar}
                                     <ArrowDown rotateArrow = {rotateSearchArrow} condition_1 = {'arrow up down'} condition_2 = {'arrow down'}/>
                                 </button>
+
                                 <input type='text' placeholder='Inserisci comune, zona o metro' className={"compra affitta aste"} required/>
 
                                 <button className={buttonStyle[0] ? 'compra' : buttonStyle[1] ? 'affitta' : 'aste'}>

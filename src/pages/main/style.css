@@ -365,14 +365,17 @@ header{
     grid-template-columns: 280.63px 43vw
     
 }
+
 .searchDropdown{
     margin-left: 25px;
+    height: 355px;
     z-index: 1;
     width: fit-content;
     background-color: white;
     padding: 20px;
     border: 1px solid black;
     border-radius: 5px;
+    left: 30px
 }
 
 .searchDropdown > ul{
