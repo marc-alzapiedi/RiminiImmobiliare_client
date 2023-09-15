@@ -75,10 +75,6 @@ const Main = () => {
 
         // console.log(event.target.className, event.target)
         // console.log(event.clientX, event.clientY)
-
-        
-        console.log('click fired')
-        
         
         
         
