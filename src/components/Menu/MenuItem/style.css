@@ -1,0 +1,60 @@
+.loginRegisterForm{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.loginRegisterForm > div,  .loginRegisterForm > form{
+    align-self: center;
+    width: 400px;
+    height: 517.6px
+}
+
+.loginRegisterForm > div{
+    display: grid;
+    background-image: url('https://media.istockphoto.com/id/518802758/vector/hand-drawn-seamless-pattern-with-town-houses.jpg?s=612x612&w=0&k=20&c=VRCiBHZhKUG409S7ocnJPvKSynuWhN-5GgmbKIokZz0=');
+    justify-self: end;
+    
+}
+
+.loginRegisterForm > form{
+    background-color: white;
+}
+
+.loginRegisterForm > form > div > p{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+
+.loginRegisterForm > div > div{
+    height: 300px;
+    width: 360px;
+    background-color: white;
+    align-self: center;
+    justify-self: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px;
+
+}
+
+.loginRegisterForm > div > div > p{
+    font-size: large;
+    font-weight: 600;
+    margin: 10px;
+}
+
+.loginRegisterForm > div > div > ul{
+    display: grid;
+    gap: 20px;
+    margin: 30px;
+    
+}
