@@ -136,7 +136,7 @@ header{
     color: transparent;
 }
 
-.loginMenu > ul > li > a > .ProfileIcon {
+.loginMenu > ul > li > button > p > .ProfileIcon {
     color: grey;
     background-color: grey;
     border: solid 1px transparent;
@@ -147,10 +147,24 @@ header{
 }
 
 
-.loginMenu > ul > li:first-child > a{
-    grid-template-columns: 40px 1fr;
+.loginMenu > ul > li:first-child > button{
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    height: fit-content;
+    background-color: transparent;
+    border: none;
     align-items: center;
+    font-size: large;
     gap: 20px;
+}
+
+.loginMenu > ul > li:first-child > button:hover{
+    cursor: default;
+}
+
+.loginMenu > ul > li:first-child > button > p:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .loginMenu > ul > li:nth-child(4){
@@ -160,6 +174,7 @@ header{
 .loginMenu > ul > li:first-child{
     margin-left: 3px;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .loginMenu > ul:last-child > li:nth-child(7){
@@ -257,10 +272,6 @@ header{
     width: 244.81px;
     text-align: center;
 }
-
-/* .searchBar > input.agenzie:nth-child(2){
-    text-align: start;
-} */
 
 
 .searchBar > .vendi, .valuta{

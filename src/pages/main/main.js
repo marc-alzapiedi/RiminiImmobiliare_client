@@ -73,8 +73,6 @@ const Main = () => {
 
     const handleDropdown = (event) => {
 
-        // console.log(event.target.className, event.target)
-        // console.log(event.clientX, event.clientY)
         
         
         
