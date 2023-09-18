@@ -2,14 +2,49 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import ArrowRight from "../../../Icons/ArrowRight"
 import './style.css'
+import Xbutton from "../../../Icons/Xbutton"
+import Google from "../../../Icons/Google"
+import Apple from "../../../Icons/Apple"
+import Facebook from "../../../Icons/Facebook"
 
 
 const MenuItem = ({icon, text, children}) => {
 
     const [isOpen, setIsOpen] = useState(false)
+    const [user, setUser] = useState({email: '', password: '', usernameLogin: '', passwordLogin: ''})
+
 
     const toggleIsOpen = () => {
         setIsOpen(!isOpen)
+    }
+
+    const handleChange = (event) => {
+        const {value, name} = event.target
+
+        setUser({
+            ...user,
+            [name]: value
+        })
+
+
+    }
+
+    const handleRegister = (event) => {
+        event.preventDefault()
+
+        const options = {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(user)
+        }
+
+        fetch('http://localhost:4000/register', options)
+        .then(response => response.json())
+        .then((data)=> {
+            console.log(data)
+        })
     }
 
     return (
@@ -54,32 +89,39 @@ const MenuItem = ({icon, text, children}) => {
 
                 </div>
 
-                <form>
+                <form onSubmit={handleRegister}>
 
                     <div>
                         <p>Accedi o registrati</p>
                         <button>
-                            X
+                            <Xbutton/>
                         </button>
 
                     </div>
 
 
                     <button>
+                        <Google/>
                         CONTINUA CON GOOGLE
                     </button>
 
                     <button>
+                        <Apple />
                         CONTINUA CON APPLE
                     </button>
 
                     <button>
+                        <Facebook/>
                         CONTINUA CON FACEBOOK
                     </button>
 
                     <p>Oppure</p>
 
-                    <input type="email"/>
+                    <input type="email" name="email" placeholder="EMAIL" onChange={handleChange} value={user.email}/>
+
+                    <button>
+                        ACCEDI O REGISTRATI
+                    </button>
 
                 </form>
             </div>

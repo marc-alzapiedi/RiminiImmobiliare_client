@@ -24,15 +24,69 @@
 }
 
 .loginRegisterForm > form{
+    display: grid;
+    grid-template-rows: repeat(6, max-content);
+    padding-top: 10px;
     background-color: white;
+    gap: 30px;
+    justify-items: center;
 }
+
+.loginRegisterForm > form > button{
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    padding-left: 40px;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.loginRegisterForm > form > input{
+    width: 300px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 10px;
+    font-size: 15px;
+
+}
+
+.loginRegisterForm > form > button:last-child{
+    padding-left: 0;
+    gap: 0;
+    justify-content: center;
+    background-color: rgb(181, 0, 0);
+    color: white;
+    font-weight: 600
+
+}
+
+.loginRegisterForm > form > div{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 140px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
 
 .loginRegisterForm > form > div > p{
     font-weight: bold;
     font-size: 25px;
 }
 
+.loginRegisterForm > form > div > button{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    align-content: center;
 
+}
 
 .loginRegisterForm > div > div{
     height: 300px;
