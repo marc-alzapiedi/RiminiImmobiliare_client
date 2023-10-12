@@ -157,7 +157,7 @@ header{
     font-size: large;
     gap: 20px;
 }
-
+  
 .loginMenu > ul > li:first-child > button:hover{
     cursor: default;
 }
