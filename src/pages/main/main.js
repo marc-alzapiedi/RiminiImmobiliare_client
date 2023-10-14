@@ -74,8 +74,6 @@ const Main = () => {
     const handleDropdown = (event) => {
 
         
-        
-        
         if (between(event.clientY, 1, 60)){
             setLoginArrow(!rotateLoginArrow)
             setLoginMenu(!loginMenu)
@@ -334,18 +332,9 @@ const Main = () => {
                             </div>
                             
 
-                        </div>
-
-                        
-                        
+                        </div>   
                     </nav>
-
-
-
-
                 </section>
-
-               
 
             </Container>
         </>
