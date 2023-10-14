@@ -17,16 +17,16 @@ const MenuItem = ({icon, text, children}) => {
     const [register, setRegister] = useState(false) // false
     const [login, setLogin] = useState(false) // false
 
-    console.log(icon.type.name)
     console.log(isOpen)
-
+    // console.log(text)
+    
     const handleRegister = (event) => {
         event.preventDefault()
         console.log(event)
-
+        
         console.log('submit fired')
-
-
+        
+        
         fetch(`http://localhost:4000/registerlogin/${event.target[4].value}`)
         .then(response => response.json())
         .then((data)=> {
@@ -41,56 +41,56 @@ const MenuItem = ({icon, text, children}) => {
             console.log(resStatus.status)
         })
     }
-
+    
     const Open = (event) => {
         event.preventDefault()
         console.log('click fired')
         setIsOpen(true)
-
+        
     }
-
+    
     const close = (event) => {
         event.preventDefault()
         console.log('login button clicked')
         setIsOpen(false)
-
+        
     }
-
     
-
+    
+    
     const handleChange = (event) => {
         const {value, name, type, checked} = event.target
-
+        
         if(type === 'checkbox') {
             setForm({
                 ...form, [name]: checked
             })
         } else {
-
+            
             setForm({
                 ...form,
                 [name]: value
             })
         }
-
+        
         setUser({
             ...user,
             [name]: value
         })
-
-
-
+        
+        
+        
     }
 
-
+    
     return (
-
+        
         
         
         <li>
-            {!icon ? children : icon.type.name === 'ProfileIcon' ?
+            {!icon ? children : text === 'Accedi / Registrati' ?
                 
-            <button onClick={Open}> 
+                <button onClick={Open}> 
                 <p>
                 {icon}
                 </p>
@@ -99,7 +99,7 @@ const MenuItem = ({icon, text, children}) => {
                 </p>
             </button>
             : 
-            icon.type.name !== 'ProfileIcon' ? 
+            text !== 'Accedi / Registrati' ? 
             <Link>
                 {icon}
                 {children ? children : <p>{text}</p>}
