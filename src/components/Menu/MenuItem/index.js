@@ -17,6 +17,7 @@ const MenuItem = ({icon, text, children}) => {
     const [register, setRegister] = useState(false) // false
     const [login, setLogin] = useState(false) // false
 
+    console.log(icon.type.name)
     console.log(isOpen)
 
     const handleRegister = (event) => {
