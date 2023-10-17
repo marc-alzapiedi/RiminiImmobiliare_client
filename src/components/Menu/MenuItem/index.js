@@ -27,7 +27,7 @@ const MenuItem = ({icon, text, children}) => {
         console.log('submit fired')
         
         
-        fetch(`http://localhost:4000/registerlogin/${event.target[4].value}`)
+        fetch(`${process.env.REACT_APP_API_URL}/registerlogin/${event.target[4].value}`)
         .then(response => response.json())
         .then((data)=> {
             const resStatus = data

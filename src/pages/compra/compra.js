@@ -51,7 +51,7 @@ const Compra = () => {
     
 
     useEffect(() => {
-        fetch(`http://localhost:4000/compra/${params.type}/${params.province}`)
+        fetch(`${process.env.REACT_APP_API_URL}/compra/${params.type}/${params.province}`)
         .then((response) => response.json())
         .then((data) => {
             const list = data

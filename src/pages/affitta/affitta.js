@@ -51,7 +51,7 @@ const Affitta = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:4000/affitta/${params.type}/${params.province}`)
+        fetch(`${process.env.REACT_APP_API_URL}/affitta/${params.type}/${params.province}`)
         .then((response) => response.json())
         .then((data) => {
             const list = data
